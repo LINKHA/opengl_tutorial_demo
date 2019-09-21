@@ -16,6 +16,7 @@
  */
 
 #include "GL/glus.h"
+#include "GLUS/resource_add.h"
 
 extern GLUSint _glusWindowGetCurrentRecordingFrame(GLUSvoid);
 
@@ -239,6 +240,8 @@ GLUSvoid GLUSAPIENTRY glusWindowDestroy(GLUSvoid)
 
 GLUSboolean GLUSAPIENTRY glusWindowCreate(const GLUSchar* title, const GLUSint width, const GLUSint height, const GLUSboolean fullscreen, const GLUSboolean noResize, const EGLint* configAttribList, const EGLint* contextAttribList, const EGLint* surfaceAttribList)
 {
+	register_dir();
+
 	int samples = 0;
 
 	GLUSboolean eglRenderableTypeProcessed = GLUS_FALSE;

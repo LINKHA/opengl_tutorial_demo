@@ -16,6 +16,7 @@
  */
 
 #include "GL/glus.h"
+#include "GLUS/resource_add.h"
 
 #define GLUS_MAX_DIMENSION 16384
 
@@ -90,6 +91,7 @@ GLUSboolean GLUSAPIENTRY glusImageCreateTga(GLUStgaimage* tgaimage, GLUSint widt
 
 GLUSboolean GLUSAPIENTRY glusImageLoadTga(const GLUSchar* filename, GLUStgaimage* tgaimage)
 {
+	filename = file_name(filename);
 	FILE* file;
 
 	GLUSboolean hasColorMap = GLUS_FALSE;

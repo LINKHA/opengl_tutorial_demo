@@ -12,6 +12,8 @@
 
 #include "GL/glus.h"
 
+#include "GLUS/resource_add.h"
+
 /**
  * The used shader program.
  */
