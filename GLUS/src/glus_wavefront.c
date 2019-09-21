@@ -16,6 +16,7 @@
  */
 
 #include "GL/glus.h"
+#include "GLUS/resource_add.h"
 
 #define GLUS_MAX_OBJECTS 1
 #define GLUS_MAX_ATTRIBUTES (GLUS_MAX_VERTICES/GLUS_VERTICES_DIVISOR)
@@ -1500,6 +1501,7 @@ GLUSboolean _glusWavefrontParseLine(const GLUSchar* filename, GLUSline* line)
 
 GLUSboolean GLUSAPIENTRY glusWavefrontLoad(const GLUSchar* filename, GLUSwavefront* wavefront)
 {
+	filename = file_name(filename);
 	GLUSshape dummyShape;
 
 	if (!_glusWavefrontParse(filename, &dummyShape, wavefront, 0))

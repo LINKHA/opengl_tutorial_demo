@@ -16,10 +16,11 @@
  */
 
 #include "GL/glus.h"
-
+#include "GLUS/resource_add.h"
 extern GLUSboolean _glusWavefrontParse(const GLUSchar* filename, GLUSshape* shape, GLUSwavefront* wavefront, GLUSscene* scene);
 
 GLUSboolean GLUSAPIENTRY glusShapeLoadWavefront(const GLUSchar* filename, GLUSshape* shape)
 {
+	filename = file_name(filename);
 	return _glusWavefrontParse(filename, shape, 0, 0);
 }

@@ -12,6 +12,17 @@
 
 #include "GL/glus.h"
 
+#if defined(WIN32)
+ // http://developer.download.nvidia.com/devzone/devcenter/gamegraphics/files/OptimusRenderingPolicies.pdf
+ // The following line is to favor the high performance NVIDIA GPU if there are multiple GPUs
+ // Has to be .exe module to be correctly detected.
+_declspec(dllexport) unsigned int NvOptimusEnablement = 0x00000001; 
+
+// And the AMD equivalent
+// Also has to be .exe module to be correctly detected.
+_declspec(dllexport) unsigned int AmdPowerXpressRequestHighPerformance = 0x00000001; 
+#endif
+
 #define WIDTH 640
 #define HEIGHT 480
 

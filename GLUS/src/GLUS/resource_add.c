@@ -5,7 +5,7 @@
 #pragma comment(lib,"shlwapi.lib")  
 static char* resourcePath = NULL;
 
-static char* lastFileName = NULL;
+char lastFileName[_MAX_PATH];
 
 char* register_dir()
 {
@@ -28,12 +28,7 @@ char* register_dir()
 
 char* file_name(char* filename)
 {
-	if (lastFileName)
-	{
-		free(lastFileName);
-		lastFileName = NULL;
-	}
-	lastFileName = (char*)malloc(strlen(resourcePath) + strlen(filename));
+	memset(lastFileName, 0, sizeof(lastFileName));
 
 	strcpy(lastFileName, resourcePath);
 	strcat(lastFileName, filename);

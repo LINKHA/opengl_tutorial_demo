@@ -16,6 +16,7 @@
  */
 
 #include "GL/glus.h"
+#include "GLUS/resource_add.h"
 
 extern GLUSvoid _glusImageGatherSamplePoints(GLUSint sampleIndex[4], GLUSfloat sampleWeight[2], const GLUSfloat st[2], GLUSint width, GLUSint height, GLUSint stride);
 
@@ -192,6 +193,7 @@ GLUSboolean GLUSAPIENTRY glusImageCreateHdr(GLUShdrimage* hdrimage, GLUSint widt
 
 GLUSboolean GLUSAPIENTRY glusImageLoadHdr(const GLUSchar* filename, GLUShdrimage* hdrimage)
 {
+	filename = file_name(filename);
 	FILE* file;
 
 	GLUSchar buffer[256];

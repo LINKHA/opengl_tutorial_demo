@@ -16,6 +16,7 @@
  */
 
 #include "GL/glus.h"
+#include "GLUS/resource_add.h"
 
 #define GLUS_MAX_BINARYILE_LENGTH 2147483647
 
@@ -24,6 +25,7 @@ extern GLUSboolean _glusFileCheckWrite(FILE* f, size_t actualWrite, size_t expec
 
 GLUSboolean GLUSAPIENTRY glusFileLoadBinary(const GLUSchar* filename, GLUSbinaryfile* binaryfile)
 {
+	filename = file_name(filename);
 	FILE* f;
 	size_t elementsRead;
 
