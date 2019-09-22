@@ -261,6 +261,9 @@ GLUSboolean init(GLUSvoid)
 
 	glGetError();
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, image.width, image.height, 0, GL_RGB, GL_FLOAT, image.data);
+
+	glusLogPrintError(GLUS_LOG_INFO, "glTexImage2D()");
+
 	glusImageDestroyHdr(&image);
 	if (glGetError() != GL_NO_ERROR)
 	{

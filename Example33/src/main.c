@@ -13,6 +13,14 @@
 
 #include "GL/glus.h"
 
+#if defined(WIN32)
+_declspec(dllexport) unsigned int NvOptimusEnablement = 0x00000001;
+
+// And the AMD equivalent
+// Also has to be .exe module to be correctly detected.
+_declspec(dllexport) unsigned int AmdPowerXpressRequestHighPerformance = 0x00000001;
+#endif
+
 // Number of roughness layers per specular cube map side
 #define NUMBER_ROUGHNESS	6
 
@@ -323,6 +331,9 @@ GLUSboolean init(GLUSvoid)
     glBindTexture(GL_TEXTURE_CUBE_MAP_ARRAY, g_texture[0]);
 
 	glTexImage3D(GL_TEXTURE_CUBE_MAP_ARRAY, 0, GL_RGB32F, image[0].width, image[0].height, 6*NUMBER_ROUGHNESS, 0, GL_RGB, GL_FLOAT, 0);
+
+	int width = image[0].width;
+	int height = image[0].height;
 
 	glusLogPrintError(GLUS_LOG_INFO, "glTexImage3D()");
 

@@ -1,4 +1,4 @@
-#include "resource_add.h"
+#include "GLUS/resource_add.h"
 #include <windows.h>
 #include <stdio.h>
 #include <Shlwapi.h>

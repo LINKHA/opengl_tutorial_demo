@@ -12,6 +12,14 @@
 
 #include "GL/glus.h"
 
+#if defined(WIN32)
+_declspec(dllexport) unsigned int NvOptimusEnablement = 0x00000001;
+
+// And the AMD equivalent
+// Also has to be .exe module to be correctly detected.
+_declspec(dllexport) unsigned int AmdPowerXpressRequestHighPerformance = 0x00000001;
+#endif
+
 /**
  * Properties of the light.
  */
